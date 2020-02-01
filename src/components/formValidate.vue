@@ -3,14 +3,14 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
 
-              <form>
+              <form id="form">
 
                 <div class="form-row">
                   <div class="col-md-4 mb-3 md-form">
 
                     <label for="validationServer015">First name</label>
 
-                    <input type="text" v-model.trim="$v.name.$model" @input="setName($event.target.value)" class="form-control" :class="getClass()" name="name" id="validationServer015" value="Mark">
+                    <input type="text" v-model.trim="$v.name.$model" @input="setName($event.target.value)" class="form-control" :class="getClass()" name="name" id="validationServer015" value="Mark" autofocus>
 
                     <div class="invalid-feedback" v-if="!$v.name.required">
                       field is required
@@ -177,10 +177,32 @@ export default{
 
 
     post(){
+
+
       const postData = {name: this.name, username: this.username, email: this.email};
-      this.$http.post('https://laravel-6ae0a.firebaseio.com/post.json', postData).then(res =>{
-        this.data = res.body;
-      });
+
+
+      if (this.$v.$invalid) {
+        alert('Submission Invalid');
+      }else{
+
+        this.$http.post('https://laravel-6ae0a.firebaseio.com/post.json', postData).then(res =>{
+
+            this.data = res.body;
+
+        });
+
+        alert(this.name + ' '+ 'Just Submitted The form');
+
+        this.name = this.email = this.username = '';
+
+      }
+
+
+
+
+
+
     }
 
     // ------
