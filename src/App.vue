@@ -1,17 +1,23 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+
     <formValidate> </formValidate>
+
+    <viewData> </viewData>
+
   </div>
 </template>
 
 <script>
 import formValidate from './components/formValidate.vue'
+import viewData from './components/viewData.vue'
 
 export default {
   name: 'app',
   components: {
-    formValidate
+    formValidate,
+    viewData
   }
 }
 </script>
