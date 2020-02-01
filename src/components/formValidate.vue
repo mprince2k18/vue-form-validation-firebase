@@ -14,7 +14,6 @@
 
                     <div class="invalid-feedback" v-if="!$v.name.required">
                       field is required
-
                     </div>
 
                     <div class="error" v-if="!$v.name.minLength">
@@ -61,10 +60,7 @@
 
                   </div>
 
-
-
                 </div>
-
 
                 <button class="btn btn-primary btn-sm btn-rounded" type="submit" @click.prevent="post">Submit form</button>
           </form>
@@ -174,13 +170,10 @@ export default{
     },
     // getEmail
 
-
-
     post(){
 
 
       const postData = {name: this.name, username: this.username, email: this.email};
-
 
       if (this.$v.$invalid) {
         alert('Submission Invalid');
@@ -198,14 +191,9 @@ export default{
 
       }
 
-
-
-
-
-
     }
 
-    // ------
+    // post
   },
 
   // END
